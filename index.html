@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Changer</title>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            min-width: 255px;
+        }
+
+        nav {
+            width: 100%;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            background-color: black;
+            overflow: auto;
+            /*position: sticky;
+            top: 0;*/
+            color: white;
+        }
+
+        nav.sticky{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        nav>ul {
+            float: right;
+            list-style: none;
+            padding: 5px 20px;
+            display: inline;
+            color: inherit;
+            display: block;
+        }
+
+        nav>ul>li {
+            display: inline;
+            color: inherit;
+
+        }
+
+        nav>ul>li>a {
+            padding: 12px 15px;
+            color: inherit;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        nav>ul>li>a:hover {
+            color: aqua;
+        }
+
+
+        .container {
+            padding: 20px 35px;
+        }
+
+        .bg_color_changer {
+            display: flex;
+            margin-bottom: 20px;
+            float: right;
+        }
+
+        .bg_color_changer>span {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid gray;
+            margin: 0px 8px;
+            cursor: pointer;
+        }
+
+        .bg_color_changer>span:first-child {
+            background-color: pink;
+        }
+
+        .bg_color_changer>span:nth-child(2) {
+            background-color: black;
+        }
+
+        .bg_color_changer>span:nth-child(3) {
+            background-color: white;
+        }
+
+        .bg_color_changer>span:nth-child(4) {
+            background-color: orange;
+        }
+
+        .bg_color_changer>span:last-child {
+            background-color: purple;
+        }
+
+
+        #title {
+            display: inline;
+            float: left;
+        }
+
+        .container>img {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .paragraph_text {
+            justify-content: center;
+        }
+
+        .hamburger {
+            appearance: none;
+            border: none;
+            background: transparent;
+            border-radius: 5px;
+            padding: 5px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            display: none;
+        }
+
+        .hamburger:focus {
+            border-color: white;
+        }
+
+        .hamburger>span {
+            display: block;
+            width: 22px;
+            height: 3px;
+            border-radius: 10px;
+            background-color: white;
+            margin-bottom: 4px;
+        }
+
+        .hamburger>span:last-child {
+            margin-bottom: 0px;
+        }
+
+
+        @media screen and (max-width:600px) {
+            nav>ul {
+                float: initial;
+                display: none;
+            }
+
+            nav>ul>li {
+                display: block;
+            }
+
+            nav>ul>li>a {
+                padding: 10px 15px;
+                display: block;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+
+        @media screen and (max-width:700px) {
+            .container {
+                padding: 15px;
+            }
+        }
+
+        @media screen and (max-width:550px) {
+            nav {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav>ul {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            #title {
+                display: block;
+                float: initial;
+                text-align: center;
+            }
+
+            .bg_color_changer {
+                float: initial;
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+        }
+
+        /* @media screen and (max-width:450px) {} */
+
+    </style>
+
+</head>
+
+<body>
+
+  
+    <section class="container">
+        <div class="innerContainer">
+            <h1 id="title">Background Changer</h1>
+
+            <div class="bg_color_changer">
+                <span onclick="change_background('pink')"></span>
+                <span onclick="change_background('black')"></span>
+                <span onclick="change_background('white')"></span>
+                <span onclick="change_background('orange')"></span>
+                <span onclick="change_background('purple')"></span>
+            </div>
+        </div>
+
+        <nav>
+        
+            <div>
+                <button id="hamburger" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            
+    
+            <ul id="sub_manu">
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#Service">Service</a></li>
+                <li><a href="#Contact">Contact</a></li>
+                <li><a href="#About Us">About Us</a></li>
+            </ul>
+        </nav>
+
+        <img src="image.jpg" alt="Parle Agro Brands">
+
+
+        <p id="paragraph_text">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas nesciunt quidem at pariatur velit aliquid
+            laboriosam ratione natus ea saepe adipisci blanditiis, deleniti dignissimos repellat ab non, sint ducimus
+            nobis
+            illo ipsam impedit eligendi, quos eveniet. Dicta incidunt sunt error necessitatibus? Nostrum aliquid quod
+            nemo
+            inventore natus, obcaecati sit amet doloremque, officiis eaque voluptas praesentium fuga est tenetur optio
+            consectetur et dolorem dolorum reprehenderit qui similique quam illo aperiam. Commodi, assumenda dolorum
+            officia
+            quasi debitis quam sint, vero tempora consequuntur perspiciatis doloremque recusandae ipsum sequi laudantium
+            facilis quo doloribus possimus sit ad temporibus cumque? Ea magnam veritatis ad. Doloribus similique
+            distinctio
+            incidunt aliquam totam, labore facere blanditiis eius provident iusto eveniet quaerat animi cupiditate
+            possimus
+            tempore libero odio? Asperiores sed enim, accusamus numquam nostrum, natus voluptatem voluptatibus ducimus
+            cumque ex, repellat laudantium repudiandae! Quae ipsum tenetur dolorum animi esse officia dolore,
+            exercitationem
+            illum veritatis, provident facilis, laboriosam qui ex quibusdam dicta temporibus adipisci laudantium
+            excepturi a
+            iure aliquid ratione amet beatae voluptatum? Harum ratione sapiente perferendis a amet molestiae dolore
+            ullam
+            sequi illo, consectetur qui alias nulla quia reiciendis error magni possimus voluptas voluptatum expedita
+            similique mollitia. Dolorem, consequatur, necessitatibus nisi, excepturi fuga quasi quia veniam ex vitae
+            omnis
+            at? Neque animi distinctio mollitia a, aliquam harum similique sequi unde! Tempore aut mollitia aliquid
+            quisquam
+            sequi libero, consectetur alias eaque, repellat earum iure ipsam saepe omnis aperiam reiciendis enim
+            tempora?
+            Minima quasi aliquam nisi fugit nihil amet ducimus ex recusandae soluta cumque, voluptas corporis sapiente,
+            culpa cum aspernatur saepe laboriosam sit dicta non ipsum ea, enim distinctio possimus? Mollitia sunt
+            laudantium, iusto, officia aliquam maiores expedita blanditiis nobis optio provident possimus quae nostrum
+            qui
+            amet quos nihil doloremque. Corrupti aspernatur tempore nam in quos minima, libero, esse nemo quis quae
+            officiis
+            nesciunt ipsa molestiae officia tenetur. Reiciendis quasi animi error placeat pariatur, quibusdam dolorum
+            sunt
+            tempora provident modi quae cupiditate sit reprehenderit ipsam similique perferendis accusamus fugiat
+            facilis
+            voluptates officia molestias possimus necessitatibus iure! Dolor iste distinctio nam nisi? Officia magni
+            non,
+            debitis ullam distinctio, repudiandae quidem veniam atque harum, doloribus consequatur rerum nulla natus
+            commodi
+            est! Dolorum, nulla sunt veritatis suscipit reprehenderit numquam iusto aperiam quibusdam non recusandae
+            voluptatibus! Dolore exercitationem, ratione dignissimos atque libero saepe. Natus sequi expedita eos error
+            aperiam nemo reprehenderit itaque, optio nobis temporibus magni ab deserunt explicabo hic porro! Ipsam
+            ducimus
+            expedita ea possimus, quis qui unde omnis excepturi placeat? Enim facilis repellat veniam culpa illo
+            eligendi,
+            quas expedita omnis, praesentium vitae natus? Quos asperiores ad reprehenderit dolore odit? Earum voluptate
+            ut
+            dolorum doloremque, necessitatibus veritatis tempora nulla, vel excepturi repudiandae perspiciatis nam nihil
+            animi dolor ex ipsa repellendus in sed commodi corrupti laboriosam impedit doloribus explicabo porro. Vero
+            exercitationem adipisci esse earum ex. Ut ratione, ullam hic saepe libero nostrum illum aspernatur deserunt
+            in
+            blanditiis. Architecto, a sapiente accusamus laborum dignissimos aliquam doloribus non hic dolor animi odio
+            veniam quibusdam voluptates porro illum eaque iusto ab sit ducimus quod atque error necessitatibus incidunt.
+            Provident voluptatum similique consequuntur voluptatibus ab excepturi omnis enim odio quibusdam ratione
+            rerum
+            atque eius, amet magni soluta quasi accusamus magnam sint. Molestias qui hic eveniet, pariatur
+            necessitatibus
+            in. Deserunt blanditiis consectetur odio sit eos amet placeat at nisi nobis ducimus, ullam beatae sunt ad
+            laborum, rem deleniti quam ratione eum iusto similique. Aspernatur hic assumenda earum? Aperiam quos ducimus
+            officiis possimus quaerat impedit atque amet sequi asperiores, in rem aut perspiciatis accusamus aspernatur?
+            Ex
+            temporibus numquam beatae nesciunt recusandae nam, est necessitatibus quidem id quia velit dolorem
+            reiciendis
+            suscipit vitae aperiam accusantium odio minus dicta vero rerum odit culpa veritatis! Nesciunt ut quisquam
+            facilis sunt obcaecati eveniet tempora porro explicabo, unde placeat expedita, molestias quis maiores
+            dolores
+            vel eius iusto impedit et! Consectetur doloribus eaque debitis, facilis blanditiis animi libero, sint
+            impedit
+            dignissimos corporis, tenetur est atque assumenda iste! Iure architecto quasi ipsa officia dolores ducimus
+            laboriosam nihil tempora nam! Incidunt, iusto sit cumque laudantium hic voluptas aspernatur non ad inventore
+            velit quasi! Repellat veniam tempore quod ipsa. Cum eligendi illum exercitationem pariatur sunt repellat
+            molestias aspernatur tenetur nostrum. Porro dignissimos quod, ad, facilis dolore obcaecati praesentium saepe
+            ipsam recusandae iure blanditiis temporibus voluptatum necessitatibus aliquid quasi. Explicabo voluptas
+            fugiat
+            eaque fugit, alias voluptatem, facere, adipisci ea at nam nesciunt aliquam voluptatibus! Inventore nemo
+            omnis
+            recusandae adipisci dolorum magnam, soluta saepe nostrum odit accusantium perspiciatis facilis consequatur.
+            Voluptas voluptate tempora ex dolorum rem recusandae at consequuntur voluptatem? Quam impedit inventore,
+            aliquid
+            neque dignissimos dolorum incidunt error velit nulla modi repellendus! Distinctio, mollitia! Neque, modi eos
+            quos aliquid corrupti nam tempore porro perferendis veritatis quia nihil sint rerum magnam, dolor quo
+            distinctio, quae quisquam doloribus architecto enim? Impedit cumque atque similique distinctio corporis?
+            Nostrum
+            harum alias ipsa veritatis facere ab optio nam minima ex amet. Magnam velit eveniet error quos magni? Quae
+            deleniti nisi, omnis tempore quaerat laudantium reiciendis ipsam. Repellendus doloribus quisquam, temporibus
+            autem ea quas velit quae? Adipisci corrupti tempora expedita cumque provident. Aliquam minus explicabo
+            consequatur officia obcaecati placeat ipsam voluptatum, harum numquam animi ratione recusandae id minima
+            dolore
+            magnam corrupti porro. Culpa veniam ab maxime quos qui beatae et alias est blanditiis. Et ipsa cum dolore
+            repellendus, voluptates mollitia iure quos aliquid! Corporis repellat vel facere natus hic dolorum at
+            reiciendis
+            illo? Perspiciatis aut voluptas, illo repellat necessitatibus, vero fugiat aliquam doloribus incidunt
+            praesentium libero nulla, molestias quia inventore blanditiis velit natus! Ut odit ea saepe ullam vitae
+            soluta
+            quas magni maiores impedit consequatur maxime quaerat, asperiores voluptas fugit recusandae ipsum odio
+            atque?
+            Autem doloremque totam velit nulla eos nostrum amet natus perferendis tempora numquam enim, consequuntur
+            laborum
+            repudiandae animi fugit facere eius exercitationem ipsum. Dolor adipisci ab nihil tempore. Non a quae natus
+            soluta sint et eveniet blanditiis architecto error minus excepturi aliquid beatae commodi, dolores,
+            accusamus
+            dignissimos adipisci quibusdam. At, quia ex neque ad temporibus dolores quam commodi dolore quis, saepe
+            corporis
+            quisquam quibusdam autem eaque qui. Praesentium veritatis ea aliquam sequi. Nobis a fuga doloribus ratione
+            rerum
+            dicta excepturi corrupti, illum ipsa voluptatibus odio, officiis amet deserunt. Deleniti perspiciatis culpa
+            architecto porro cupiditate?
+        </p>
+    </section>
+
+
+    <script>
+        let body = document.body;
+        let paragraph_text = document.getElementById("paragraph_text");
+        let title = document.getElementById("title");
+        let nav = document.querySelector("nav");
+        function change_background(color) {
+            body.style.backgroundColor = color;
+
+            if (color == "black") {
+                nav.style.backgroundColor = "white";
+                nav.style.color = "black";
+            } else {
+                nav.style.backgroundColor = "black";
+                nav.style.color = "white";
+            }
+
+            if (color == "black" || color == "purple") {
+                paragraph_text.style.color = "white";
+                title.style.color = "white";
+            } else {
+                paragraph_text.style.color = "black";
+                title.style.color = "black";
+            }
+        }
+
+        let hamburger = document.getElementById("hamburger");
+        let sub_manu = document.getElementById("sub_manu");
+
+        let isActive = false;
+        hamburger.addEventListener("click", () => {
+            if(isActive){
+                sub_manu.style.display = "none";
+                isActive = false;
+            }else{
+                sub_manu.style.display = "block";
+                isActive = true;
+            }
+        });
+
+        window.addEventListener("wheel",(event)=>{
+            if(window.pageYOffset > 66){
+                nav.classList.add("sticky")
+            }else{
+                nav.classList.remove("sticky")
+            }
+        })
+
+    </script>
+</body>
+
+</html>
